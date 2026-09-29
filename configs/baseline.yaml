@@ -1,2 +1,30 @@
 # Main model configuration (architecture + training hyperparameters).
 # Referenced from the results table in README.md as configs/baseline.yaml.
+seed: 0
+blind: none            # none | zeros | shuffle   (E1 uses configs/blind.yaml)
+
+data:
+  dir: data
+  num_workers: 0       # the dataset lives in RAM as a tensor; extra workers only add overhead (measure it in S1)
+
+model:                 # ~1.3 M parameters
+  d_model: 128
+  n_heads: 4           # d_head = 32
+  n_layers: 4
+  d_ff: 512            # 4 * d_model
+  dropout: 0.1
+  encoder_channels: [32, 64, 128]   # 64x64 -> 32 -> 16 -> 8  => 8x8 = 64 visual tokens
+  image_size: 64
+  max_letters: 45
+  visual_attention: bidirectional   # bidirectional (prefix-LM) | causal
+
+train:
+  batch_size: 128
+  epochs: 30
+  lr: 0.001
+  weight_decay: 0.01
+  warmup_steps: 200
+  grad_clip: 1.0
+  amp: false           # mixed precision (GPU only); off for the main result
+  log_every: 25
+  gen_eval_every: 5

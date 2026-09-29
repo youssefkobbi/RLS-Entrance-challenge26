@@ -1,0 +1,46 @@
+date: 2026-09-30 00:12:57 W. Central Africa Standard Time
+platform: Windows-11-10.0.26200-SP0
+python: 3.12.0
+torch: 2.4.1+cpu
+torch cpu threads: 8
+cpu: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+
+$ nvidia-smi
+Wed Sep 30 00:12:57 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 591.86                 Driver Version: 591.86         CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3070 ...  WDDM  |   00000000:01:00.0  On |                  N/A |
+| N/A   66C    P5             40W /   40W |    5138MiB /   8192MiB |     94%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            5308    C+G   ...Browser\Application\brave.exe      N/A      |
+|    0   N/A  N/A            6760    C+G   ...erwolf\0.310.1.1\Overwolf.exe      N/A      |
+|    0   N/A  N/A            7016    C+G   ....0.4258.37\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A            9708    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A            9756    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A            9768    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A           14524    C+G   ...64__8wekyb3d8bbwe\GameBar.exe      N/A      |
+|    0   N/A  N/A           15484    C+G   ...xyewy\ShellExperienceHost.exe      N/A      |
+|    0   N/A  N/A           16264    C+G   ...Anti-Malware\Malwarebytes.exe      N/A      |
+|    0   N/A  N/A           17336    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           18488    C+G   ...Browser\Application\brave.exe      N/A      |
+|    0   N/A  N/A           19800    C+G   ...SpotifyXboxGamebarWebView.exe      N/A      |
+|    0   N/A  N/A           20528    C+G   ...aries\Win64\EpicWebHelper.exe      N/A      |
+|    0   N/A  N/A           21460    C+G   ...aude\app-2.16120.0\claude.exe      N/A      |
+|    0   N/A  N/A           28640    C+G   ...4\VALORANT-Win64-Shipping.exe      N/A      |
+|    0   N/A  N/A           30296    C+G   C:\Windows\System32\svchost.exe       N/A      |
+|    0   N/A  N/A           30468    C+G   ...aude\app-2.16120.0\claude.exe      N/A      |
+|    0   N/A  N/A           33188    C+G   ...ms\Microsoft VS Code\Code.exe      N/A      |
+|    0   N/A  N/A           34944    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
++-----------------------------------------------------------------------------------------+

@@ -30,7 +30,6 @@ from pathlib import Path
 import torch
 
 from src.data import ShapeScenes, collate
-from src.tokenizer import IGNORE_INDEX, VOCAB_SIZE
 from src.train import compute_loss
 from src.utils import build_model, load_config, set_seed
 

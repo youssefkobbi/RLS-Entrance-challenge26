@@ -15,7 +15,6 @@ With three stages the size goes 64 -> 32 -> 16 -> 8, so the feature map is 8 x 8
 = 64 positions, each becoming one visual token.
 """
 
-import torch
 from torch import nn
 
 

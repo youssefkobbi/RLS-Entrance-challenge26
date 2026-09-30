@@ -1,8 +1,5 @@
 # E1 — Blind baseline
 
-> DRAFT written before any E1 run. Youssef: read it, change it to what you actually believe, and commit it BEFORE
-> you launch the blind training (the commit timestamp is the evidence that the hypothesis came first).
-
 ## Question
 Does the main model actually use the image, or could a decoder that only knows the spelling statistics of the
 words do as well?
@@ -42,11 +39,35 @@ python experiments/aggregate.py --names baseline blind --split test --out experi
 ```
 
 ## Result
-TODO (paste `summary_test.md`, refer to `attribute_accuracy_test.png`).
+Test split, mean +- std over seeds 0, 1, 2 (`summary_test.md`, plot in `attribute_accuracy_test.png`):
+
+| metric | baseline | blind |
+|---|---|---|
+| exact match | 0.717 +- 0.004 | 0.017 +- 0.001 |
+| size acc | 0.841 +- 0.004 | 0.332 +- 0.002 |
+| color acc | 0.747 +- 0.006 | 0.201 +- 0.000 |
+| shape acc | 0.749 +- 0.010 | 0.171 +- 0.031 |
+| relation acc | 0.451 +- 0.005 | 0.000 +- 0.000 |
+| #objects acc | 1.000 +- 0.000 | 0.490 +- 0.000 |
+| letter acc (teacher-forced, all) | 0.988 | 0.874 |
+| letter acc, first letter of a part | 0.940 | 0.403 |
+| letter acc, inside a part | 1.000 | 0.984 |
 
 ## Interpretation
-TODO: what the result supports, what it does not, and any alternative explanation.
-The lesson to draw: the gap between letter accuracy and attribute accuracy for the blind model.
+The main model uses the image: the gap in exact match (0.717 vs 0.017) is far larger than the spread over seeds.
+
+My prediction was only partly right. Exact match below 0.03: right. Letters inside a part close to 1.0: right (0.984).
+First letter of a part low: right (0.40). Attribute accuracy at chance (size 0.5, others 0.25): wrong. Blind size was
+0.33, colour 0.20, shape 0.17, and relation exactly 0. The blind model has the same input for every image, so greedy
+decoding gives the same word every time. It only ever writes one object (#objects acc 0.49 is just the share of
+one-object images), so relation and the second object can never be right. I predicted chance for a sampling model, but
+greedy decoding commits to one word.
+
+Letter accuracy is misleading: 0.874 for a model that is almost never right. Most letters are spelling inside a part.
+
+Not shown by this experiment: only one architecture and setting, three seeds. I did not check whether some
+information leaks through the zero image (BatchNorm on constant input), although the near-zero result suggests not.
 
 ## Log (failed runs, surprises, dead ends)
-TODO
+The surprise was the blind model writing a single fixed word. The validation loss of the main model has one spike
+near step 3400 that recovered by itself.

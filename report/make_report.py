@@ -163,8 +163,8 @@ def build():
     # ---- title
     story += [P("A Tiny Vision-Language Model that Spells What It Sees", TITLE),
               P("RLS Entrance Challenge &nbsp;|&nbsp; Youssef &nbsp;|&nbsp; code: "
-                "github.com/youssefkobbi/RLS-Entrance-challenge26 &nbsp;|&nbsp; final commit: "
-                + tbd("git hash"), SUB), Spacer(1, 4)]
+                "github.com/youssefkobbi/RLS-Entrance-challenge26 &nbsp;|&nbsp; results at commit "
+                "f72de06 (later commits only touch the report and README)", SUB), Spacer(1, 4)]
 
     # ---- 1 problem
     story += [P("1. Problem", H1),
@@ -227,7 +227,7 @@ def build():
     rows = [["Optimizer", "AdamW, lr 1e-3, weight decay 0.01, gradient clipping 1.0",
              "Schedule", "200 warm-up steps, then cosine to 5% of lr"],
             ["Batch / epochs", "128 images, 30 epochs (157 steps per epoch)", "Regularisation", "dropout 0.1"],
-            ["Data", "train 20,000, val 2,000, test 2,000 (heldout 2,000, not analysed)", "Seeds",
+            ["Data", "train 20,000, val 2,000, test 2,000 (heldout 2,000, seed 0 only)", "Seeds",
              "0, 1, 2 (dataset seed 42)"],
             ["Checkpoint", "best validation loss", "Hardware",
              "Colab Tesla T4 for training and S1; laptop CPU for E0 and S1"]]
@@ -264,6 +264,7 @@ def build():
 
         keys = [("exact match", "Exact match"), ("size acc", "Size acc."), ("color acc", "Colour acc."),
                 ("shape acc", "Shape acc."), ("relation acc", "Relation acc."),
+                ("#objects acc", "Number-of-objects acc."),
                 ("letter acc (TF, all)", "Letter acc. (teacher-forced)"),
                 ("letter acc (TF, first of part)", "  first letter of a part"),
                 ("letter acc (TF, inside part)", "  inside a part")]
@@ -330,24 +331,41 @@ def build():
         "CPU when the work per step is tiny; this model at batch 1 is still too large for that to happen. "
         "I did not test smaller inputs or models, and I did not time data loading.")
     story += [P("7. Analysis", H1), P(s1_analysis)]
-    if summary:
-        story += [P(tbd("E1: does the main model clearly beat the blind one? Which attribute fails most and my "
-                        "hypothesis why? Why is letter accuracy misleading for the blind model? Was my hypothesis "
-                        "right? What do the results NOT show (one architecture, 3 seeds)?"))]
-    else:
-        story += [P(tbd("E1 analysis after the runs: compare attribute accuracy of the main and blind model, explain "
-                        "the gap between letter accuracy and attribute accuracy, say whether the hypothesis was "
-                        "right, and what the evidence does not show."))]
+    story += [P(
+        "<b>E1: does the model use the image?</b> Yes. The main model reaches 0.717 +- 0.004 exact match and the blind "
+        "model 0.017 +- 0.001, and the gap is large compared with the spread over seeds. Chance level is not "
+        "the right comparison for the blind model, though: it never writes a second object (number-of-objects "
+        "accuracy 0.490, which is just the share of one-object test images, and relation accuracy exactly 0). "
+        "With zero images the decoder gets the same input every time, and greedy decoding then produces the same "
+        "most likely word for every image. So my hypothesis was only partly right: exact match was below 0.03 and "
+        "the letters inside parts were near-perfect (0.984), but size accuracy was 0.33, not 0.5, and colour and "
+        "shape were 0.20 and 0.17, because I had assumed chance for a model that samples, while a greedy model "
+        "commits to one word. <b>Letter accuracy is misleading:</b> teacher-forced accuracy is 0.874 for the blind "
+        "model against 0.988 for the main one, yet the blind model is almost never right. The letters inside a "
+        "part (<i>ircle</i> after <i>c</i>) are spelling, so 0.984 vs 1.000 there says nothing about vision; the "
+        "informative number is the first letter of a part, 0.403 vs 0.940. "
+        "<b>What fails in the main model:</b> relations (0.451) are far behind size (0.841), colour (0.747) and shape "
+        "(0.749); the number of objects is always right. I have not verified why; my guess is the coarse 8x8 grid "
+        "after pooling and the fact that one scene has two equally correct orderings "
+        "(<i>A leftof B</i> and <i>B rightof A</i>), which the exact-match metric counts as wrong. I saw this pattern "
+        "in the held-out error examples but did not measure it on the test split. "
+        "<b>Generalisation:</b> on the held-out split (seed 0 only) exact match falls to 0.192 and shape accuracy "
+        "to 0.44, and the listed errors turn an unseen colour-shape pair into a seen one (a blue square becomes a "
+        "blue cross), so the model partly memorises combinations. "
+        "<b>What this does not show:</b> one architecture, one hyperparameter setting and three seeds; the "
+        "validation loss stops improving after about epoch 15 while the training loss keeps falling, "
+        "and it has a single spike near step 3400 that recovered on its own, so longer training would probably "
+        "not help without regularisation.")]
 
     # ---- 8 limitations
     story += [P("8. Limitations", H1),
               P("I did only Level 1. I did not run my own experiment E3, a profiler breakdown of the training step, a "
-                "memory estimate to compare with the measured peaks, or an error analysis on test-heldout, so I cannot "
-                "say how well the model generalises to unseen colour-shape pairs. Only one architecture and one set "
+                "memory estimate to compare with the measured peaks. The held-out split was evaluated only for seed 0, "
+                "with no error analysis beyond looking at a few examples. Only one architecture and one set "
                 "of hyperparameters were trained, and three seeds give only a rough idea of the spread. The S1 "
                 "comparison mixes different machines, thread counts and torch versions, and excludes data loading. "
                 "The absolute-position embeddings and the max-pool may limit how well spatial relations are learned. "
-                "With more time I would run the held-out evaluation, an experiment on the number of visual tokens, and "
+                "With more time I would run the held-out evaluation for all seeds, an experiment on the number of visual tokens, and "
                 "a profiler trace to see whether the GPU is waiting on the Python loop.")]
 
     # ---- 9 references

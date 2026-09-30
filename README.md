@@ -23,12 +23,25 @@ Numbers are on the `test` split, mean +- std over seeds. Everything here can be 
 
 | Experiment | Configuration | Metric | Result (mean +- std, n seeds) | Interpretation |
 |---|---|---|---|---|
-| Main model | `configs/baseline.yaml` | Exact match, test | TODO | TODO |
-| E1 blind | `configs/blind.yaml` | Attribute acc., test | TODO | TODO |
-| S1 throughput | batch 64, TODO (GPU) | images/s | TODO | TODO |
+| Main model | `configs/baseline.yaml` | Exact match, test | 0.717 +- 0.004 (n=3) | Gets about 3 in 4 words fully right; relations are the weakest part (0.451) |
+| E1 blind | `configs/blind.yaml` | Exact match, test | 0.017 +- 0.001 (n=3) | Without the image it never gets a second object right, so the image is really used |
+| S1 throughput | batch 64, Colab T4 GPU | images/s | 1469 +- 4 (5 repeats) | About 50x the Colab CPU (29) and 21x my laptop CPU (68) at this batch size; flat above batch 64 |
+
+Results were produced at commit `f72de0663cb7f93ed6a1f3c9147ca5936ba6c0df`. Later commits only change the report and README.
 
 E0 (can the model overfit one batch?) worked: the loss goes from 3.48 to 0.0006 in 400 steps and all 32 words are
 reproduced exactly (`experiments/E0_overfit/`, run on my laptop CPU).
+
+### What the results show
+
+The model clearly uses the image: exact match is 0.717 with it and 0.017 without. The blind model writes one
+fixed word for every image, so it never gets a second object or a relation right, yet its letter accuracy is still
+0.87 because letters inside a part are just spelling. The number to look at is the accuracy on the first letter of a
+part (0.94 against 0.40). For the main model the relation is the weakest part (0.451), and on the held-out colour-shape
+pairs (seed 0 only) exact match falls to 0.19, so it partly memorises combinations. See
+`experiments/E1_blind/notes.md` and the report for the details.
+
+Training curves: `runs/baseline_seed0/loss_curves.png` (train and validation loss per epoch).
 
 ## How the model works
 
@@ -81,9 +94,21 @@ python experiments/aggregate.py --names baseline blind --split test --out experi
 python -m benchmarks.S1_throughput.benchmark
 ```
 
+**Training on Colab.** My laptop only has a CPU, so the real runs were done on a free Colab T4 GPU: clone the repo,
+`pip install pyyaml matplotlib pytest tqdm Pillow` (Colab already has torch), run `python generate_data.py`, save
+`runs/` to Google Drive, and use the commands above.
+
 Always run from the repository root with `python -m ...`. `--device cpu|cuda|auto` picks the hardware, and
 `--resume` continues a run after a Colab disconnect. Training runs write to `runs/<config>_seed<k>/`
 (checkpoints, loss curves, `results_test.json`).
+
+## Reproducibility and hardware
+
+- Seeds 0, 1, 2 for every accuracy number; the seed is set in `src/utils.py` and stored in each run's `config.yaml`.
+- Dataset: `generate_data.py` with its default seed (42).
+- Library versions are pinned in `requirements.txt`.
+- Hardware: E0 on my laptop CPU (AMD, 8 threads); main training and E1 on Colab (Tesla T4);
+  S1 timings on both, details in `benchmarks/S1_throughput/hardware_colab.txt` and `hardware_pc_cpu.txt`. The Colab run used torch 2.11 and my laptop torch 2.4.1, so the CPU numbers are not strictly comparable.
 
 ## Metrics
 

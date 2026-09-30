@@ -1,0 +1,424 @@
+{
+  "n": 2000,
+  "blind": "none",
+  "exact_match": 0.718,
+  "exact_match_by_n_objects": {
+    "1": 1.0,
+    "2": 0.4470588235294118
+  },
+  "attribute_acc": {
+    "size": 0.8337748344370861,
+    "color": 0.7516556291390728,
+    "shape": 0.7417218543046358,
+    "relation": 0.45098039215686275,
+    "n_objects": 1.0
+  },
+  "per_field_acc": {
+    "size1": 0.8745,
+    "color1": 0.8125,
+    "shape1": 0.805,
+    "relation": 0.45098039215686275,
+    "size2": 0.753921568627451,
+    "color2": 0.6323529411764706,
+    "shape2": 0.6176470588235294
+  },
+  "letter_acc_teacher_forced": 0.9882441739786773,
+  "letter_acc_first_of_part": 0.9391865079365079,
+  "letter_acc_inside_part": 0.9997669812419899,
+  "malformed_output_rate": 0.0,
+  "error_examples": [
+    {
+      "reference": "largeyellowcircleabovesmallredcross",
+      "generated": "smallredcrossbelowlargeyellowcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "cross",
+        "relation": "below",
+        "size2": "large",
+        "color2": "yellow",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "smallyellowcircleleftofsmallredcross",
+      "generated": "smallyellowcircleabovesmallredcross",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "yellow",
+        "shape1": "circle",
+        "relation": "above",
+        "size2": "small",
+        "color2": "red",
+        "shape2": "cross"
+      }
+    },
+    {
+      "reference": "largeredcrossbelowsmallredcircle",
+      "generated": "smallredcircleabovelargeredcross",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": "above",
+        "size2": "large",
+        "color2": "red",
+        "shape2": "cross"
+      }
+    },
+    {
+      "reference": "largeredcirclebelowsmallgreencircle",
+      "generated": "smallgreencircleleftoflargeredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "green",
+        "shape1": "circle",
+        "relation": "leftof",
+        "size2": "large",
+        "color2": "red",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "smallredcirclerightofsmallredsquare",
+      "generated": "smallredcircleabovesmallredsquare",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": "above",
+        "size2": "small",
+        "color2": "red",
+        "shape2": "square"
+      }
+    },
+    {
+      "reference": "smallyellowsquareabovelargeredcross",
+      "generated": "largeredcrossbelowsmallyellowsquare",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "red",
+        "shape1": "cross",
+        "relation": "below",
+        "size2": "small",
+        "color2": "yellow",
+        "shape2": "square"
+      }
+    },
+    {
+      "reference": "largebluecirclerightoflargeredcircle",
+      "generated": "largeredcircleleftoflargebluecircle",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": "leftof",
+        "size2": "large",
+        "color2": "blue",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "smallredtriangleleftoflargebluetriangle",
+      "generated": "largebluetrianglerightofsmallredtriangle",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "blue",
+        "shape1": "triangle",
+        "relation": "rightof",
+        "size2": "small",
+        "color2": "red",
+        "shape2": "triangle"
+      }
+    },
+    {
+      "reference": "smallgreencircleabovesmallyellowcircle",
+      "generated": "smallyellowcirclebelowsmallgreencircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "yellow",
+        "shape1": "circle",
+        "relation": "below",
+        "size2": "small",
+        "color2": "green",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "largeyellowcirclerightoflargeredtriangle",
+      "generated": "largeyellowcirclebelowlargeredtriangle",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "yellow",
+        "shape1": "circle",
+        "relation": "below",
+        "size2": "large",
+        "color2": "red",
+        "shape2": "triangle"
+      }
+    },
+    {
+      "reference": "largeyellowcirclerightofsmallbluecross",
+      "generated": "smallbluecrossleftoflargeyellowcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "blue",
+        "shape1": "cross",
+        "relation": "leftof",
+        "size2": "large",
+        "color2": "yellow",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "smallbluecrossabovesmallbluetriangle",
+      "generated": "smallbluetrianglebelowsmallbluecross",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "blue",
+        "shape1": "triangle",
+        "relation": "below",
+        "size2": "small",
+        "color2": "blue",
+        "shape2": "cross"
+      }
+    },
+    {
+      "reference": "largeredsquarerightofsmallbluecross",
+      "generated": "largeredsquarebelowsmallbluecross",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "red",
+        "shape1": "square",
+        "relation": "below",
+        "size2": "small",
+        "color2": "blue",
+        "shape2": "cross"
+      }
+    },
+    {
+      "reference": "largebluetriangleleftoflargeredtriangle",
+      "generated": "largeredtrianglerightoflargebluetriangle",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "red",
+        "shape1": "triangle",
+        "relation": "rightof",
+        "size2": "large",
+        "color2": "blue",
+        "shape2": "triangle"
+      }
+    },
+    {
+      "reference": "smallgreensquarebelowlargegreencircle",
+      "generated": "smallgreensquarerightoflargegreencircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "green",
+        "shape1": "square",
+        "relation": "rightof",
+        "size2": "large",
+        "color2": "green",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "largebluecrossbelowsmallgreensquare",
+      "generated": "smallgreensquareabovelargebluecross",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "green",
+        "shape1": "square",
+        "relation": "above",
+        "size2": "large",
+        "color2": "blue",
+        "shape2": "cross"
+      }
+    },
+    {
+      "reference": "largeyellowcirclebelowsmallredsquare",
+      "generated": "smallredsquareabovelargeyellowcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "square",
+        "relation": "above",
+        "size2": "large",
+        "color2": "yellow",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "largeyellowtriangleabovelargegreencross",
+      "generated": "largegreencrossbelowlargeyellowtriangle",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "green",
+        "shape1": "cross",
+        "relation": "below",
+        "size2": "large",
+        "color2": "yellow",
+        "shape2": "triangle"
+      }
+    },
+    {
+      "reference": "largegreencircleleftofsmallbluetriangle",
+      "generated": "smallbluetrianglebelowlargegreencircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "blue",
+        "shape1": "triangle",
+        "relation": "below",
+        "size2": "large",
+        "color2": "green",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "largebluecirclebelowsmallredcross",
+      "generated": "smallredcrossabovelargebluecircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "cross",
+        "relation": "above",
+        "size2": "large",
+        "color2": "blue",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "largebluecrossrightoflargeredcross",
+      "generated": "largeredcrossleftoflargebluecross",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "red",
+        "shape1": "cross",
+        "relation": "leftof",
+        "size2": "large",
+        "color2": "blue",
+        "shape2": "cross"
+      }
+    },
+    {
+      "reference": "smallredsquarebelowsmallyellowtriangle",
+      "generated": "smallyellowtriangleabovesmallredsquare",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "yellow",
+        "shape1": "triangle",
+        "relation": "above",
+        "size2": "small",
+        "color2": "red",
+        "shape2": "square"
+      }
+    },
+    {
+      "reference": "smallredtriangleabovesmallgreensquare",
+      "generated": "smallgreensquarebelowsmallredtriangle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "green",
+        "shape1": "square",
+        "relation": "below",
+        "size2": "small",
+        "color2": "red",
+        "shape2": "triangle"
+      }
+    },
+    {
+      "reference": "largebluecrossrightoflargeredcircle",
+      "generated": "largeredcircleleftoflargebluecross",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": "leftof",
+        "size2": "large",
+        "color2": "blue",
+        "shape2": "cross"
+      }
+    },
+    {
+      "reference": "smallbluetriangleleftoflargeyellowcircle",
+      "generated": "largeyellowcirclerightofsmallbluetriangle",
+      "parsed_generated": {
+        "size1": "large",
+        "color1": "yellow",
+        "shape1": "circle",
+        "relation": "rightof",
+        "size2": "small",
+        "color2": "blue",
+        "shape2": "triangle"
+      }
+    },
+    {
+      "reference": "largebluecircleleftofsmallbluecross",
+      "generated": "smallbluecrossrightoflargebluecircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "blue",
+        "shape1": "cross",
+        "relation": "rightof",
+        "size2": "large",
+        "color2": "blue",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "smallredtriangleabovesmallyellowtriangle",
+      "generated": "smallyellowtrianglebelowsmallredtriangle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "yellow",
+        "shape1": "triangle",
+        "relation": "below",
+        "size2": "small",
+        "color2": "red",
+        "shape2": "triangle"
+      }
+    },
+    {
+      "reference": "largegreensquarebelowsmallredcircle",
+      "generated": "smallredcircleabovelargegreensquare",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": "above",
+        "size2": "large",
+        "color2": "green",
+        "shape2": "square"
+      }
+    },
+    {
+      "reference": "largeyellowcirclebelowsmallgreencircle",
+      "generated": "smallgreencircleabovelargeyellowcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "green",
+        "shape1": "circle",
+        "relation": "above",
+        "size2": "large",
+        "color2": "yellow",
+        "shape2": "circle"
+      }
+    },
+    {
+      "reference": "largeyellowcirclerightofsmallgreencross",
+      "generated": "smallgreencrossleftoflargeyellowcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "green",
+        "shape1": "cross",
+        "relation": "leftof",
+        "size2": "large",
+        "color2": "yellow",
+        "shape2": "circle"
+      }
+    }
+  ],
+  "split": "val",
+  "seed": 1,
+  "config": "configs/baseline.yaml"
+}

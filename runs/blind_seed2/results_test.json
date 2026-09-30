@@ -1,0 +1,424 @@
+{
+  "n": 2000,
+  "blind": "zeros",
+  "exact_match": 0.0165,
+  "exact_match_by_n_objects": {
+    "1": 0.0336734693877551,
+    "2": 0.0
+  },
+  "attribute_acc": {
+    "size": 0.33278145695364236,
+    "color": 0.2009933774834437,
+    "shape": 0.20629139072847683,
+    "relation": 0.0,
+    "n_objects": 0.49
+  },
+  "per_field_acc": {
+    "size1": 0.5025,
+    "color1": 0.3035,
+    "shape1": 0.3115,
+    "relation": 0.0,
+    "size2": 0.0,
+    "color2": 0.0,
+    "shape2": 0.0
+  },
+  "letter_acc_teacher_forced": 0.874617794722736,
+  "letter_acc_first_of_part": 0.40555555555555556,
+  "letter_acc_inside_part": 0.9848258822432521,
+  "malformed_output_rate": 0.0,
+  "error_examples": [
+    {
+      "reference": "smallgreencircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeredtriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largebluecross",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largebluecross",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largebluetriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largegreensquarebelowsmallyellowcircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallredsquarebelowsmallgreencross",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallredcrossleftoflargeredtriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallredsquareabovesmallredcross",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largegreensquarebelowlargeyellowsquare",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeyellowcirclebelowlargeyellowcircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeyellowtriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallbluetrianglerightofsmallredsquare",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeyellowtriangleleftofsmallgreencircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallyellowcircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeyellowsquarebelowlargeredsquare",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largegreencircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeyellowsquare",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallyellowcircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallbluecrossabovelargeyellowtriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largegreensquare",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largebluetriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallgreensquarerightoflargebluecircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeredsquareabovesmallredtriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largeredcross",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallbluecrossrightofsmallredtriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largegreencircle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largebluecircleleftofsmallgreensquare",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "smallbluetriangle",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    },
+    {
+      "reference": "largegreensquare",
+      "generated": "smallredcircle",
+      "parsed_generated": {
+        "size1": "small",
+        "color1": "red",
+        "shape1": "circle",
+        "relation": null,
+        "size2": null,
+        "color2": null,
+        "shape2": null
+      }
+    }
+  ],
+  "split": "test",
+  "seed": 2,
+  "config": "configs/blind.yaml"
+}
